@@ -35,6 +35,7 @@ public class KMP {
         long start = System.nanoTime();
         int n = cadena.length();
         int m = patron.length();
+        int contador = 0;
         int tab[] = tablaLPS(patron.toCharArray());
         for (int i = 0, rep = 0; i < n; i++) {
             while (rep > 0 && cadena.charAt(i) != patron.charAt(rep)) {
@@ -44,10 +45,12 @@ public class KMP {
                 rep++;
             }
             if (rep == m) {
+                contador++;
                 System.out.println("Encontrado en: " + (i - rep + 1));
                 rep = tab[(rep - 1)];
             }
         }
+        System.out.println("Numero total de ocurrencias en KMP: " + contador);
         long end = System.nanoTime();
         System.out.println("Tiempo KMP: " + (end - start));
     }
