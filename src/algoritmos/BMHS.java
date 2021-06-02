@@ -45,7 +45,7 @@ public class BMHS {
             if (i + patron.length() > cadena.length() - 1) {
                 break;
             }
-            i += tab[cadena.charAt(i + patron.length())];
+            i += tab[cadena.charAt( patron.length())];
 
         }
         long end = System.nanoTime();

@@ -13,42 +13,37 @@ public class BMH {
 
     public BMH() {
     }
-    
 
-    public int[] tablaBMH(String pattern) {
-        int table[];
-        table = new int[128];
-        int i, j, m;
-        char p[] = pattern.toCharArray();
-        m = pattern.length();
-
-        for (i = 0; i < 128; i++) {
-            table[i] = m;
+    public int[] tablaBMH(char[] patron) {
+        int bmhTable[];
+        bmhTable = new int[256];
+        int m = patron.length;
+        for (int i = 0; i < 256; i++) {
+            bmhTable[i] = m;
         }
-        for (j = 0; j < m - 1; j++) {
-            table[p[j]] = m - 1 - j;
+        for (int j = 0; j < m - 1; j++) {
+            bmhTable[patron[j]] = m - 1 - j;
         }
-        return table;
+        return bmhTable;
     }
 
     public void BMH(String cadena, String patron) {
         long start = System.nanoTime();
-        int i, k, m;
-        char T[] = cadena.toCharArray();
-        char P[] = patron.toCharArray();
+        int i, k, m, n;
+        n = cadena.length();
         m = patron.length();
         i = m - 1;
-        int table[] = tablaBMH(patron);
-        while (i < cadena.length()) {
+        int table[] = tablaBMH(patron.toCharArray());
+        while (i < n) {
             k = 0;
-            while ((k < m) && (P[m - 1 - k] == T[i - k])) {
+            while ((k < m) && (patron.charAt(m - 1 - k) == cadena.charAt(i - k))) {
                 k++;
             }
             if (k == m) {
                 System.out.println("Encontrado en: " + (i - m + 1)); // position of the pattern founded
                 i++;
             } else {
-                i += table[T[i]];
+                i += table[cadena.charAt(i)];
             }
         }
 
