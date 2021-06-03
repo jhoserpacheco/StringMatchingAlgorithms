@@ -15,9 +15,8 @@ public class BMH {
     }
 
     public int[] tablaBMH(char[] patron) {
-        int bmhTable[];
-        bmhTable = new int[256];
         int m = patron.length;
+        int bmhTable[] = new int[256];
         for (int i = 0; i < 256; i++) {
             bmhTable[i] = m;
         }
@@ -29,24 +28,29 @@ public class BMH {
 
     public void BMH(String cadena, String patron) {
         long start = System.nanoTime();
-        int i, k, m, n;
-        n = cadena.length();
-        m = patron.length();
-        i = m - 1;
-        int table[] = tablaBMH(patron.toCharArray());
+        int count = 0;
+        int[] table = tablaBMH(patron.toCharArray());
+        int m = patron.length();
+        int n = cadena.length();
+        int i = m - 1;
         while (i < n) {
-            k = 0;
-            while ((k < m) && (patron.charAt(m - 1 - k) == cadena.charAt(i - k))) {
-                k++;
+            int k = 0;
+            while (k < m) {
+                if (patron.charAt(m - 1 - k) == cadena.charAt(i - k)) {
+                    k++;
+                } else {
+                    break;
+                }
             }
             if (k == m) {
-                System.out.println("Encontrado en: " + (i - m + 1)); // position of the pattern founded
+                System.out.println("Encontrado en : " + (i - m + 1));
+                count++;
                 i++;
             } else {
                 i += table[cadena.charAt(i)];
             }
         }
-
+        System.out.println("Numero total de ocurrencias en BMH: " + count);
         long end = System.nanoTime();
         System.out.println("Tiempo BMH: " + (end - start));
     }
