@@ -1,18 +1,14 @@
 package util;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 import java.net.*;
 import java.io.*;
 import java.util.*;
 
 /**
  * Clase que permita leer un archivo de texto plano desde una URL
- *
- * @author Marco Adarme
  */
+
+
 public class ArchivoURL {
 
     //Almacena la dirección URL del archivo
@@ -56,7 +52,7 @@ public class ArchivoURL {
                 // Volcamos lo recibido al buffer
                 in = new BufferedReader(new InputStreamReader(
                         url.openStream()));
-            } catch (Throwable t) {
+            } catch (IOException t) {
             }
 
             // Transformamos el contenido del buffer a texto
