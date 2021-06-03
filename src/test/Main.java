@@ -12,7 +12,7 @@ public class Main {
         BMHS bmhs = new BMHS();
         KMP kmp = new KMP();
         FuerzaBruta fuerza = new FuerzaBruta();
-        ArchivoTXT txt = new ArchivoTXT("C:/Users/jhose/OneDrive/Escritorio/prueba.txt", "\n");
+        ArchivoTXT txt = new ArchivoTXT("rutaDelTxt", "\n");
         String str[][] = txt.leerTodo();
         String cadena = "";
         for (String[] str1 : str) {
