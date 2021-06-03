@@ -18,7 +18,7 @@ public class BMHS {
         int m = patron.length;
         int[] bmhsTable = new int[256]; // Number of characters
 
-        for (int i = 0; i < bmhsTable.length; ++i) {
+        for (int i = 0; i < bmhsTable.length; i++) {
             bmhsTable[i] = m + 1;
         }
 
@@ -34,7 +34,7 @@ public class BMHS {
         int i = 0, j = 0;
         while (j < patron.length() && i < cadena.length()) {
             while (j < patron.length() && i + j < cadena.length() && cadena.charAt(i + j) == patron.charAt(j)) {
-                ++j;
+                j++;
             }
             // Match success
             if (j == patron.length()) {
