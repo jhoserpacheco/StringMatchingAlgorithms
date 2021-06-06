@@ -7,7 +7,7 @@ package algoritmos;
 
 /**
  *
- * @author jhoser
+ * @author Jhoser and Jarlin
  */
 public class KMP {
 
@@ -52,6 +52,9 @@ public class KMP {
         }
         System.out.println("Numero total de ocurrencias en KMP: " + contador);
         long end = System.nanoTime();
-        System.out.println("Tiempo KMP: " + (end - start));
+         double timeMili = (end - start)*1.0e-6;
+        
+        System.out.println("Tiempo de KMP es: " + timeMili+" ms");
+
     }
 }

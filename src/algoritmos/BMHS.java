@@ -7,49 +7,60 @@ package algoritmos;
 
 /**
  *
- * @author jhoser
+ * @author Jhoser and Jarlin
  */
 public class BMHS {
 
     public BMHS() {
     }
 
-    public int[] tablaBMHS(char[] patron) {
-        int m = patron.length;
-        int[] bmhsTable = new int[256]; // Number of characters
 
-        for (int i = 0; i < bmhsTable.length; i++) {
-            bmhsTable[i] = m + 1;
+    public int[] tablaBMHS(String texto, String patron) {
+
+        int n = texto.length();
+        int m = patron.length();
+        System.out.println(n);
+        int maxChar = 99999;
+        int bmhsTable[] = new int[maxChar];
+        for (int j = 0; j < maxChar; j++) {
+            bmhsTable[j] = m + 1;
+        }
+        for (int j = 0; j < m; j++) {
+            bmhsTable[(int) patron.charAt(j)] = m - j;
         }
 
-        for (int i = 0; i < m; i++) {
-            bmhsTable[patron[i]] = m - i;
-        }
         return bmhsTable;
     }
 
-    public void BMHS(String cadena, String patron) {
+    public void BMHS(String T, String P) {
         long start = System.nanoTime();
-        int[] tab = tablaBMHS(patron.toCharArray());
-        int i = 0, j = 0;
-        while (j < patron.length() && i < cadena.length()) {
-            while (j < patron.length() && i + j < cadena.length() && cadena.charAt(i + j) == patron.charAt(j)) {
-                j++;
-            }
-            // Match success
-            if (j == patron.length()) {
-                System.out.println("Encontrado en: " + i);
-                i++;
-                j = 0;
-            }
-            if (i + patron.length() > cadena.length() - 1) {
-                break;
-            }
-            i += tab[cadena.charAt( patron.length())];
+        int n = T.length();
+        int m = P.length();
+        int tablaPreprocesamiento[] = tablaBMHS(T, P);
+        
+        int i = m - 1;
+        int contador = 0;
+        while (i < n) { 
+            int k = i;
+            int j = m - 1;
 
+            while ((j >= 0) && (T.charAt(k) == P.charAt(j))) {
+                j--;
+                k--;
+            }
+            if (j < 0) {
+                System.out.println("Encontrado en :  " + (k + 1));
+                contador++;
+
+            }
+
+            i = i + tablaPreprocesamiento[(int) T.charAt(i + 1)];
         }
+        System.out.println("Numero total de ocurrencias en BMHS: " + contador);
         long end = System.nanoTime();
-        System.out.println("Tiempo BMHS: " + (end - start));
-
+         double timeMili = (end - start)*1.0e-6;
+        
+        System.out.println("Tiempo de BMHS es: " + timeMili+" ms");
     }
+
 }

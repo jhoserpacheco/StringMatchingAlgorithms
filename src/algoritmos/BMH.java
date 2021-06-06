@@ -7,7 +7,7 @@ package algoritmos;
 
 /**
  *
- * @author jhoser
+ * @author Jhoser and Jarlin
  */
 public class BMH {
 
@@ -52,6 +52,8 @@ public class BMH {
         }
         System.out.println("Numero total de ocurrencias en BMH: " + count);
         long end = System.nanoTime();
-        System.out.println("Tiempo BMH: " + (end - start));
+         double timeMili = (end - start)*1.0e-6;
+        
+        System.out.println("Tiempo de BMH es: " + timeMili+" ms");
     }
 }
