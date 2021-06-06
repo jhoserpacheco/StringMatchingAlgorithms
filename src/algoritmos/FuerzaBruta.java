@@ -38,48 +38,45 @@ public class FuerzaBruta {
         long end = System.nanoTime();
 
         System.out.println("Numero total de ocurrencias en Fuerza Bruta: " + contador);
-         double timeMili = (end - start)*1.0e-6;
-        
-        System.out.println("Tiempo de Fuerza Bruta es: " + timeMili+" ms");
-    }
-    
-    
-    public void fuerzaBruta3(String cadena, String patron) {
-        long start = System.nanoTime();
-        int contador=0;
-        int ti, pi, tj;
-        ti=0;
-         pi=0;
-          tj=0;
-        int m = patron.length();
-        int n = cadena.length();
-        
-        while(ti<n-m){
-            if(cadena.charAt(ti)==patron.charAt(0) ){
-                pi=0;
-                tj=ti;
-                do {
-                    tj++;
-                    pi++;
-                    if(pi==m){
-                        System.out.println("Ocurrencia en: "+ti);
-                        contador++;
-                        break;
-                    }
-            
-                }while(cadena.charAt(tj)==patron.charAt(pi));
-            
-            }
-            ti++;
-        }
-        
-        
-        
-        long end = System.nanoTime();
+        double timeMili = (end - start) * 1.0e-6;
 
-        System.out.println("Numero total de ocurrencias en Fuerza Bruta: " + contador);
-         double timeMili = (end - start)*1.0e-6;
-        
-        System.out.println("Tiempo de Fuerza Bruta es: " + timeMili+" ms");
+        System.out.println("Tiempo de Fuerza Bruta es: " + timeMili + " ms");
     }
+
+//    public void fuerzaBruta2(String cadena, String patron) {
+//        long start = System.nanoTime();
+//        int contador = 0;
+//        int ti, pi, tj;
+//        ti = 0;
+//        pi = 0;
+//        tj = 0;
+//        int m = patron.length();
+//        int n = cadena.length();
+//
+//        while (ti < n - m) {
+//            if (cadena.charAt(ti) == patron.charAt(0)) {
+//                pi = 0;
+//                tj = ti;
+//                do {
+//                    tj++;
+//                    pi++;
+//                    if (pi == m) {
+//                        System.out.println("Ocurrencia en: " + ti);
+//                        contador++;
+//                        break;
+//                    }
+//
+//                } while (cadena.charAt(tj) == patron.charAt(pi));
+//
+//            }
+//            ti++;
+//        }
+//
+//        long end = System.nanoTime();
+//
+//        System.out.println("Numero total de ocurrencias en Fuerza Bruta: " + contador);
+//        double timeMili = (end - start) * 1.0e-6;
+//
+//        System.out.println("Tiempo de Fuerza Bruta es: " + timeMili + " ms");
+//    }
 }

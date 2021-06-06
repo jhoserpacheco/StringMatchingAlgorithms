@@ -76,13 +76,5 @@ public class ArchivoURL {
         return (l.toArray());
 
     }
-    /*
-    public static void main(String[] args) {
-        ArchivoURL url = new ArchivoURL("https://gitlab.com/ronaldeduardobm/archivos-laberinto/raw/master/archivos/laberinto1SolucionCorto.csv");
-        Object ob[] = url.leerArchivo();
-        for (Object ob1 : ob) {
-            System.out.println(ob1.toString());
-        }
-    }
-     */
+    
 }

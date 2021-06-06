@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package algoritmos;
 
 /**
@@ -14,46 +9,48 @@ public class BMH {
     public BMH() {
     }
 
-    public int[] tablaBMH(char[] patron) {
-        int m = patron.length;
-        int bmhTable[] = new int[256];
-        for (int i = 0; i < 256; i++) {
-            bmhTable[i] = m;
+    public int[] tablaBMH(String texto, String patron) {
+
+        int n = texto.length();
+        int m = patron.length();
+        System.out.println(n);
+        int maxChar = 99999;
+        int bmhTable[] = new int[maxChar];
+        for (int j = 0; j < maxChar; j++) {
+            bmhTable[j] = m;
         }
-        for (int j = 0; j < m - 1; j++) {
-            bmhTable[patron[j]] = m - 1 - j;
+        for (int j = 0; j < (m - 1); j++) {
+            bmhTable[(int) patron.charAt(j)] = m - j - 1;
         }
+
         return bmhTable;
     }
 
-    public void BMH(String cadena, String patron) {
+    public void BMH(String T, String P) {
         long start = System.nanoTime();
         int count = 0;
-        int[] table = tablaBMH(patron.toCharArray());
-        int m = patron.length();
-        int n = cadena.length();
+        int n = T.length();
+        int m = P.length();
+        int tablaPreprocesamiento[] = tablaBMH(T, P);
         int i = m - 1;
         while (i < n) {
-            int k = 0;
-            while (k < m) {
-                if (patron.charAt(m - 1 - k) == cadena.charAt(i - k)) {
-                    k++;
-                } else {
-                    break;
-                }
+            int k = i;
+            int j = m - 1;
+            while ((j >= 0) && (T.charAt(k) == P.charAt(j))) {
+                j--;
+                k--;
             }
-            if (k == m) {
-                System.out.println("Encontrado en : " + (i - m + 1));
+            if (j < 0) {
+                System.out.println("Encontrado en: " + (k + 1));
                 count++;
-                i++;
-            } else {
-                i += table[cadena.charAt(i)];
             }
+            i = i + tablaPreprocesamiento[(int) T.charAt(i)];
         }
         System.out.println("Numero total de ocurrencias en BMH: " + count);
         long end = System.nanoTime();
-         double timeMili = (end - start)*1.0e-6;
-        
-        System.out.println("Tiempo de BMH es: " + timeMili+" ms");
+        double timeMili = (end - start) * 1.0e-6;
+
+        System.out.println("Tiempo de BMH es: " + timeMili + " ms");
     }
+
 }
