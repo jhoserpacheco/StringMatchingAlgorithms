@@ -7,7 +7,7 @@ package algoritmos;
 
 /**
  *
- * @author jhoser
+ * @author Jhoser and Jarlin
  */
 public class FuerzaBruta {
 
@@ -21,7 +21,7 @@ public class FuerzaBruta {
      *
      */
     public void fuerzaBruta(String cadena, String patron) {
-        long start = System.nanoTime();
+        long start = System.currentTimeMillis();
         int m = patron.length();
         int n = cadena.length();
         int j = 0, contador = 0;
@@ -35,9 +35,9 @@ public class FuerzaBruta {
             }
             j = 0;
         }
-        long end = System.nanoTime();
+        long end = System.currentTimeMillis();
 
         System.out.println("Numero total de ocurrencias en Fuerza Bruta: " + contador);
-        System.out.println("Tiempo Fuerza Bruta: " + (end - start));
+        System.out.println("Tiempo de Fuerza Bruta es: " + (end - start) + " ms");
     }
 }

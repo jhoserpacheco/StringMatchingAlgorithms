@@ -7,7 +7,7 @@ package algoritmos;
 
 /**
  *
- * @author jhoser
+ * @author Jhoser and Jarlin
  */
 public class KMP {
 
@@ -32,7 +32,7 @@ public class KMP {
     }
 
     public void KMP(String cadena, String patron) {
-        long start = System.nanoTime();
+        long start = System.currentTimeMillis();
         int n = cadena.length();
         int m = patron.length();
         int contador = 0;
@@ -50,8 +50,9 @@ public class KMP {
                 rep = tab[(rep - 1)];
             }
         }
+        long end = System.currentTimeMillis();
         System.out.println("Numero total de ocurrencias en KMP: " + contador);
-        long end = System.nanoTime();
-        System.out.println("Tiempo KMP: " + (end - start));
+        System.out.println("Tiempo de KMP es: " + (end - start) + " ms");
+
     }
 }

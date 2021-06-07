@@ -7,49 +7,52 @@ package algoritmos;
 
 /**
  *
- * @author jhoser
+ * @author Jhoser and Jarlin
  */
 public class BMHS {
 
     public BMHS() {
     }
 
-    public int[] tablaBMHS(char[] patron) {
-        int m = patron.length;
-        int[] bmhsTable = new int[256]; // Number of characters
+    public int[] tablaBMHS(String patron) {
 
-        for (int i = 0; i < bmhsTable.length; i++) {
+        int m = patron.length();
+        int maxChar = 99999;
+        int bmhsTable[] = new int[maxChar];
+        for (int i = 0; i < maxChar; i++) {
             bmhsTable[i] = m + 1;
         }
-
         for (int i = 0; i < m; i++) {
-            bmhsTable[patron[i]] = m - i;
+            bmhsTable[patron.charAt(i)] = m - i;
         }
         return bmhsTable;
     }
 
     public void BMHS(String cadena, String patron) {
-        long start = System.nanoTime();
-        int[] tab = tablaBMHS(patron.toCharArray());
-        int i = 0, j = 0;
-        while (j < patron.length() && i < cadena.length()) {
-            while (j < patron.length() && i + j < cadena.length() && cadena.charAt(i + j) == patron.charAt(j)) {
-                j++;
-            }
-            // Match success
-            if (j == patron.length()) {
-                System.out.println("Encontrado en: " + i);
-                i++;
-                j = 0;
-            }
-            if (i + patron.length() > cadena.length() - 1) {
-                break;
-            }
-            i += tab[cadena.charAt( patron.length())];
+        long start = System.currentTimeMillis();
+        int n = cadena.length();
+        int m = patron.length();
+        int bmhsTable[] = tablaBMHS(patron);
 
+        int i = m - 1;
+        int contador = 0;
+        while (i < n) {
+            int k = i;
+            int j = m - 1;
+            while (j >= 0 && (cadena.charAt(k) == patron.charAt(j))) {
+                j--;
+                k--;
+            }
+            if (j < 0) {
+                System.out.println("Encontrado en :  " + (k + 1));
+                contador++;
+            }
+            i = i + bmhsTable[cadena.charAt(i + 1)];
         }
-        long end = System.nanoTime();
-        System.out.println("Tiempo BMHS: " + (end - start));
+        long end = System.currentTimeMillis();
 
+        System.out.println("Numero total de ocurrencias en BMHS: " + contador);
+        System.out.println("Tiempo de BMHS es: " + (end - start) + " ms");
     }
+
 }
