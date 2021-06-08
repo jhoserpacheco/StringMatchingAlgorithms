@@ -89,7 +89,7 @@ public class Main {
                 }
                 cadena = data.toString();
             } else { //LECTURA DE TEXTO DESDE UNA URL
-                cadena = lecturaTxtRemoto("https://raw.githubusercontent.com/jhoserpacheco/StringMatchingAlgorithms/main/test/prueba.txt");
+                cadena = lecturaTxtRemoto("https://raw.githubusercontent.com/jhoserpacheco/StringMatchingAlgorithms/main/test/Prueba%203.txt");
             }
             if (validar) {
                 do {
