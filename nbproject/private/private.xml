@@ -2,19 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-            <file>file:/C:/Users/Jarlin/Documents/NetBeansProjects/StringMatchingAlgorithms-main/src/test/Main.java</file>
-            <file>file:/C:/Users/Jarlin/Documents/NetBeansProjects/StringMatchingAlgorithms-main/test/prueba.txt</file>
-            <file>file:/C:/Users/Jarlin/Documents/NetBeansProjects/StringMatchingAlgorithms-main/src/algoritmos/KMP.java</file>
-            <file>file:/C:/Users/Jarlin/Documents/NetBeansProjects/StringMatchingAlgorithms-main/src/util/ArchivoTXT.java</file>
-            <file>file:/C:/Users/Jarlin/Documents/NetBeansProjects/StringMatchingAlgorithms-main/src/algoritmos/BMH.java</file>
-            <file>file:/C:/Users/Jarlin/Documents/NetBeansProjects/StringMatchingAlgorithms-main/src/util/ArchivoURL.java</file>
-            <file>file:/C:/Users/Jarlin/Documents/NetBeansProjects/StringMatchingAlgorithms-main/src/algoritmos/BMHS.java</file>
-            <file>file:/C:/Users/Jarlin/Documents/NetBeansProjects/StringMatchingAlgorithms-main/src/algoritmos/FuerzaBruta.java</file>
+            <file>file:/C:/Users/Jarlin/Documents/NetBeansProjects/StringMatchingAlgorithms/src/test/Main.java</file>
+            <file>file:/C:/Users/Jarlin/Documents/NetBeansProjects/StringMatchingAlgorithms/src/algoritmos/BMHS.java</file>
+            <file>file:/C:/Users/Jarlin/Documents/NetBeansProjects/StringMatchingAlgorithms/src/algoritmos/BMH.java</file>
+            <file>file:/C:/Users/Jarlin/Documents/NetBeansProjects/StringMatchingAlgorithms/src/algoritmos/KMP.java</file>
+            <file>file:/C:/Users/Jarlin/Documents/NetBeansProjects/StringMatchingAlgorithms/src/algoritmos/FuerzaBruta.java</file>
         </group>
->>>>>>> 49ee875320221230d588aec9bc4015a4e92684b8
     </open-files>
 </project-private>

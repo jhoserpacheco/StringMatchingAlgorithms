@@ -21,7 +21,7 @@ public class FuerzaBruta {
      *
      */
     public void fuerzaBruta(String cadena, String patron) {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         int m = patron.length();
         int n = cadena.length();
         int j = 0, contador = 0;
@@ -35,9 +35,10 @@ public class FuerzaBruta {
             }
             j = 0;
         }
-        long end = System.currentTimeMillis();
+        long end = System.nanoTime();
+        double timeMili = (end - start) * 1.0e-6;
 
         System.out.println("Numero total de ocurrencias en Fuerza Bruta: " + contador);
-        System.out.println("Tiempo de Fuerza Bruta es: " + (end - start) + " ms");
+        System.out.println("Tiempo de Fuerza Bruta es: " + timeMili + " ms");
     }
 }

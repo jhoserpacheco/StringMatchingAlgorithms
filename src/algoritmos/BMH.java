@@ -25,7 +25,7 @@ public class BMH {
     }
 
     public void BMH(String cadena, String patron) {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         int count = 0;
         int n = cadena.length();
         int m = patron.length();
@@ -44,9 +44,10 @@ public class BMH {
             }
             i = i + bmhtable[cadena.charAt(i)];
         }
-        long end = System.currentTimeMillis();
+        long end = System.nanoTime();
+        double timeMili = (end - start) * 1.0e-6;
         System.out.println("Numero total de ocurrencias en BMH: " + count);
-        System.out.println("Tiempo de BMH es: " + (end - start) + " ms");
+        System.out.println("Tiempo de BMH es: " + timeMili + " ms");
     }
 
 }

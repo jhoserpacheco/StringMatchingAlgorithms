@@ -32,7 +32,7 @@ public class KMP {
     }
 
     public void KMP(String cadena, String patron) {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         int n = cadena.length();
         int m = patron.length();
         int contador = 0;
@@ -50,9 +50,10 @@ public class KMP {
                 rep = tab[(rep - 1)];
             }
         }
-        long end = System.currentTimeMillis();
+        long end = System.nanoTime();
+        double timeMili = (end - start) * 1.0e-6;
         System.out.println("Numero total de ocurrencias en KMP: " + contador);
-        System.out.println("Tiempo de KMP es: " + (end - start) + " ms");
+        System.out.println("Tiempo de KMP es: " + timeMili + " ms");
 
     }
 }
