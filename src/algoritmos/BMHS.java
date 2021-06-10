@@ -44,7 +44,7 @@ public class BMHS {
                 k--;
             }
             if (j < 0) {
-                System.out.println("Encontrado en :  " + (k + 1));
+                //System.out.println("Encontrado en :  " + (k + 1));
                 contador++;
             }
             i = i + bmhsTable[cadena.charAt(i + 1)];

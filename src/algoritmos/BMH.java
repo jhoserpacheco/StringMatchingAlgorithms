@@ -41,7 +41,7 @@ public class BMH {
                 k--;
             }
             if (j < 0) {
-                System.out.println("Encontrado en: " + (k + 1));
+                //System.out.println("Encontrado en: " + (k + 1));
                 count++;
             }
             i = i + bmhtable[cadenaC[i]];

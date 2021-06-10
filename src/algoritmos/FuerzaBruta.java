@@ -20,7 +20,7 @@ public class FuerzaBruta {
      * @param patron
      *
      */
-    public void fuerzaBruta(String cadena, String patron) {
+    public static void fuerzaBruta(String cadena, String patron) {
         long start = System.nanoTime();
         int m = patron.length();
         int n = cadena.length();
@@ -30,7 +30,7 @@ public class FuerzaBruta {
                 j++;
             }
             if (j == m) {
-                System.out.println("Encontrado en: " + i);
+                //System.out.println("Encontrado en: " + i);
                 contador++;
             }
             j = 0;

@@ -46,7 +46,7 @@ public class KMP {
             }
             if (rep == m) {
                 contador++;
-                System.out.println("Encontrado en: " + (i - rep + 1));
+                //System.out.println("Encontrado en: " + (i - rep + 1));
                 rep = tab[(rep - 1)];
             }
         }
