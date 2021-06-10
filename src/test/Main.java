@@ -43,7 +43,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String cadena, patron;
-        short seguir;
+        int seguir;
         int algoritmo;
         String finalizado = "**********************************************************************************************************************************************\n*                                                                   FINALIZADO.                                                              *\n**********************************************************************************************************************************************";
         while (true) {
@@ -97,12 +97,14 @@ public class Main {
                     algoritmo = sc.nextInt();
                     do {
                         System.out.println("Digite el patron a buscar en el texto: ");
-                        sc.nextLine();
-                        patron = sc.nextLine();
+//                        sc.nextLine();
+//                        patron = sc.nextLine();
+                          patron= JOptionPane.showInputDialog("Digite el patron a buscar en el texto:");
+                          System.out.println(patron);
                         elegirAlgortimo(algoritmo, cadena, patron);
                         do {
                             System.out.println("¿Desea seguir buscando patrones en el texto, salir o cambiar de algoritmo?\n  Si: 1\n  Cambiar algoritmo: 2  \n  Salir: 0");
-                            seguir = sc.nextShort();
+                            seguir = sc.nextInt();
                             if (seguir == 3) {
                                 System.out.println("Por favor escoja las 3 opciones dadas");
                                 seguir = 3;

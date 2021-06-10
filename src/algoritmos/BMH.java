@@ -29,12 +29,14 @@ public class BMH {
         int count = 0;
         int n = cadena.length();
         int m = patron.length();
+        char []cadenaC= cadena.toCharArray();
+        char []patronC= patron.toCharArray();
         int bmhtable[] = tablaBMH(patron.toCharArray());
         int i = m - 1;
         while (i < n) {
             int k = i;
             int j = m - 1;
-            while (j >= 0 && (cadena.charAt(k) == patron.charAt(j))) {
+            while (j >= 0 && (cadenaC[k]== patronC[j])) {
                 j--;
                 k--;
             }
@@ -42,7 +44,7 @@ public class BMH {
                 System.out.println("Encontrado en: " + (k + 1));
                 count++;
             }
-            i = i + bmhtable[cadena.charAt(i)];
+            i = i + bmhtable[cadenaC[i]];
         }
         long end = System.nanoTime();
         double timeMili = (end - start) * 1.0e-6;

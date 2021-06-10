@@ -55,5 +55,5 @@ public class KMP {
         System.out.println("Numero total de ocurrencias en KMP: " + contador);
         System.out.println("Tiempo de KMP es: " + timeMili + " ms");
 
-    }
+    }  
 }
