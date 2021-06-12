@@ -9,36 +9,12 @@ import java.util.Scanner;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class Main {
+/**
+ *
+ * @author Jhoser and Jarlin
+ */
 
-    public static String cadena() {
-        String cadena;
-        JFileChooser fileChooser = new JFileChooser();
-        StringBuilder data = new StringBuilder();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos txt(.txt)", "txt");
-        fileChooser.setFileFilter(filtro);
-        if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-            try {
-                File file = fileChooser.getSelectedFile();
-                if (file.getName().endsWith(".txt")) {
-                    try (Scanner reader = new Scanner(file)) {
-                        while (reader.hasNextLine()) {
-                            data.append(reader.nextLine());
-                            data.append("\n");
-                        }
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "No has seleccionado un archivo .txt, porfavor vuelva a leer el archivo");
-                }
-            } catch (FileNotFoundException e) {
-                System.err.println(e);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "No se selecciono ningun archivo, porfavor vuelva a leer el archivo");
-        }
-        cadena = data.toString();
-        return cadena;
-    }
+public class Main {
 
     public static String patron() {
         JFrame frame = new JFrame("Patron");
@@ -93,11 +69,76 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-        String cadena = cadena();
-        String patron = patron();
-        for (int i = 1; i < 5; i++) {
-            elegirAlgortimo(i, cadena, patron);
+        Scanner sc = new Scanner(System.in);
+        String cadena, patron;
+        int seguir;
+        int algoritmo;
+        String finalizado = "**********************************************************************************************************************************************\n*                                                                   FINALIZADO.                                                              *\n**********************************************************************************************************************************************";
+        while (true) {
+            System.out.println("**********************************************************************************************************************************************\n*                                               BIENVENIDO A LA 3RA NOTA DE ANALISIS ALGORITMOS                                              *\n**********************************************************************************************************************************************\n");
+            boolean validar = true;
+            /*
+            LECTURA DE ARCHIVO DE TEXTO DESDE MAQUINA LOCAL 
+             */
+
+            JFileChooser fileChooser = new JFileChooser();
+            StringBuilder data = new StringBuilder();
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos txt(.txt)", "txt");
+            //Se le asigna al JFileChooser el filtro
+            fileChooser.setFileFilter(filtro);
+
+            //se muestra la ventana
+            if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                try {
+                    File file = fileChooser.getSelectedFile();
+                    if (file.getName().endsWith(".txt")) {
+                        try (Scanner reader = new Scanner(file)) {
+                            while (reader.hasNextLine()) {
+                                data.append(reader.nextLine());
+                                data.append("\n");
+                            }
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No has seleccionado un archivo .txt, porfavor vuelva a leer el archivo");
+                        validar = false;
+                        System.out.println(finalizado + "\n");
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No se selecciono ningun archivo, porfavor vuelva a leer el archivo");
+                validar = false;
+                System.out.println(finalizado + "\n");
+            }
+            cadena = data.toString();
+            if (validar) {
+                do {
+                    System.out.println("Elija el algoritmo para realizar la busqueda en el texto: \n  KMP: 1\n  BMH: 2\n  BMHS: 3\n  FUERZA BRUTA: 4");
+                    algoritmo = sc.nextInt();
+                    do {
+                        System.out.println("Digite el patron a buscar en el texto: ");
+
+                        patron = patron();
+                        elegirAlgortimo(algoritmo, cadena, patron);
+                        do {
+                            System.out.println("¿Desea seguir buscando patrones en el texto, salir o cambiar de algoritmo?\n  Si: 1\n  Cambiar algoritmo: 2  \n  Salir: 0");
+                            seguir = sc.nextInt();
+                            if (seguir == 3) {
+                                System.out.println("Por favor escoja las 3 opciones dadas");
+                                seguir = 3;
+                            }
+                        } while (seguir == 3);
+                    } while (seguir == 1);
+                } while (seguir == 2);
+
+                if (seguir == 0) {
+                    System.out.println(finalizado + "\n");
+                    System.exit(0);
+                    break;
+                }
+            }
         }
-        System.exit(0);
+
     }
 }
